@@ -1,45 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct hackers{
+struct hacker{
 	
 	char nombre[30];
 	char ip[14];
-	struct hackers *siguiente;
+	struct hacker *siguiente;
 
 };
 
-struct agenda *primero, *ultimo;
+struct hacker *primero, *ultimo;
 
 void menu(){
 	
-	printf("MENU:/N1: Agregar/n2: Elimar/n3: Mostrar/n4: Salir/n");
+	printf("MENU:\n1: Agregar\n2: Eliminar\n3: Mostrar\n4: Salir\n");
 	
 }
 
-void anadir_hacker(){
-	struct hackers *nuevo;
+void nuevo_hacker(){
+	struct hacker *nuevo;
 	
-	nuevo = (struct hackers *) malloc (sizeof(struct hackers));
-	if(nuevo==NULL) printf("No hay espacio en la memoria");
-	
-	printf("Ingresar Nuevo Elemento:/n");
-	printf("Ingresar Nombre:"); fflush(stdout);
+	nuevo = (struct hacker *) malloc (sizeof(struct hacker));
+	if(nuevo==NULL) 
+		printf("No hay espacio en la memoria\n");
+
+	printf("Ingresar nuevo elemento\n Ingresar Nombre:"); 
+	fflush(stdin);
 	gets(nuevo->nombre);
-	printf("Ingresar IP"); fflush(stdout);
+
+	printf("Ingresar IP:\n"); 
+	fflush(stdin);
 	gets(nuevo->ip);
 	
 	nuevo->siguiente = NULL;
 	if(primero==NULL)
 	{
-		printf("Primer Elemento");
+		printf("Primer Elemento\n");
 		primero = nuevo;
 		ultimo = nuevo;	
 	}
-	
 	else
 	{
-		ultimo-> siguiente = nuevo;
+		ultimo -> siguiente = nuevo;
 		ultimo = nuevo;
 	}
 	
@@ -49,25 +51,24 @@ void anadir_hacker(){
 
 int main()
 {
-	int menu, salir;
+	int opcion, salir = 1;
 	
-	primero = (struct hacker *) NULL;
-    ultimo = (struct hacker *) NULL;
-    
-    salir=1;
     do
     {
     	menu();
-    	scanf("%i", &menu);
-    	switch(menu)
+    	scanf("%i", &opcion);
+    	switch(opcion)
     	{
-    		case 1: añadir_hacker();
+    		case 1: nuevo_hacker();
     			break;
     		
 			
-			case 4: salir++;	
+			case 4: salir++;
+				break;	
 		}
 	}
 	while(salir == 1);
+	
+	return (0);
 }
 
