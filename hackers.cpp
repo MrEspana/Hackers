@@ -27,7 +27,7 @@ void añadir_hacker(){
 	struct hackers *nuevo;
 	
 	
-	
+	//erick puto
 }
 
 int main()
