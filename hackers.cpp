@@ -39,6 +39,7 @@ void anadir_hacker(){
 	
 	
 	//kevin puto
+	//erick es mas puto
 }
 
 int main()
