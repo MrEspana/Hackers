@@ -9,20 +9,31 @@ struct hackers{
 
 };
 
+struct agenda *primero, *ultimo;
+
 void menu(){
 	
 	printf("MENU:/N1: Agregar/n2: Elimar/n3: Mostrar/n4: Salir/n");
 	
 }
 
-struct hackers *primero, *ultimo;
-
-void añadir_hacker(){
+void anadir_hacker(){
+	struct hackers *nuevo;
 	
 	nuevo = (struct hackers *) malloc (sizeof(struct hackers));
-	if()
+	if(nuevo==NULL) printf("No hay espacio en la memoria");
+	
 	printf("Ingresar Nuevo Elemento:/n");
-	printf("Ingresar Nombre:");
+	printf("Ingresar Nombre:"); fflush(stdout);
+	gets(nuevo->nombre);
+	printf("Ingresar IP"); fflush(stdout);
+	scanf("%i", &nuevo->ip);
+	
+	nuevo->siguiente = NULL;
+	if(primero==NULL)
+	{
+		printf("prime")
+	}
 	
 	struct hackers *nuevo;
 	
