@@ -4,7 +4,7 @@
 struct hackers{
 	
 	char nombre[30];
-	int ip;
+	char ip[14];
 	struct hackers *siguiente;
 
 };
@@ -27,16 +27,21 @@ void anadir_hacker(){
 	printf("Ingresar Nombre:"); fflush(stdout);
 	gets(nuevo->nombre);
 	printf("Ingresar IP"); fflush(stdout);
-	scanf("%i", &nuevo->ip);
+	gets(nuevo->ip);
 	
 	nuevo->siguiente = NULL;
 	if(primero==NULL)
 	{
-		printf("prime")
+		printf("Primer Elemento");
+		primero = nuevo;
+		ultimo = nuevo;	
 	}
 	
-	struct hackers *nuevo;
-	
+	else
+	{
+		ultimo-> siguiente = nuevo;
+		ultimo = nuevo;
+	}
 	
 	//kevin puto
 	//erick es mas puto
@@ -44,6 +49,25 @@ void anadir_hacker(){
 
 int main()
 {
-	menu();
+	int menu, salir;
+	
+	primero = (struct hacker *) NULL;
+    ultimo = (struct hacker *) NULL;
+    
+    salir=1;
+    do
+    {
+    	menu();
+    	scanf("%i", &menu);
+    	switch(menu)
+    	{
+    		case 1: añadir_hacker();
+    			break;
+    		
+			
+			case 4: salir++;	
+		}
+	}
+	while(salir == 1);
 }
 
