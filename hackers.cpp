@@ -28,6 +28,7 @@ void añadir_hacker(){
 	
 	
 	//kevin puto
+	//erick es mas puto
 }
 
 int main()
